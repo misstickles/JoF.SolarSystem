@@ -1,0 +1,45 @@
+<script type="application/x-glsl" id="sky-vertex">
+varying vec2 vUV;
+
+void main() {
+  vUV = uv;
+  vec4 pos = vec4(position, 1.0);
+  gl_Position = projectionMatrix * modelViewMatrix * pos;
+}
+</script>
+
+<script type="application/x-glsl" id="sky-fragment">
+uniform sampler2D texture;
+varying vec2 vUV;
+
+void main() {
+	vec4 sample = texture2D(texture, vUV);
+	gl_FragColor = vec4(sample.xyz, sample.w);
+}
+</script>
+
+<script type="application/x-glsl" id="star-vertex">
+attribute float size;
+attribute vec3 customColor;
+
+varying vec3 vColor;
+
+void main() {
+	vColor = customColor;
+	vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+	gl_PointSize = size * ( 300.0 / -mvPosition.z );
+	gl_Position = projectionMatrix * mvPosition;
+}
+</script>
+
+<script type="application/x-glsl" id="star-fragment">
+uniform vec3 color;
+uniform sampler2D texture;
+
+varying vec3 vColor;
+
+void main() {
+	gl_FragColor = vec4( color * vColor, 1.0 );
+	gl_FragColor = gl_FragColor * texture2D( texture, gl_PointCoord );
+}
+</script>

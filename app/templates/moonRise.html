@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block scripts %}
+
+{% assets filters="jsmin", output="gen/packed.js",
+    "js/main/AstronomicalUtils.js",
+    "js/main/MoonRise.js" %}
+<script type="text/javascript" src="{{ ASSET_URL }}"></script>
+{% endassets %}
+
+<script>
+var moonRise = new MoonRise({
+    date: new Date(),
+    latitude: 51,
+    longitude: 0.1
+});
+
+var set = moonRise.getMoonRiseSetTimes(-1);
+var rise = moonRise.getMoonRiseSetTimes(1);
+alert(AstronomicalUtils.degreesToMinutes(set.ut));
+alert(AstronomicalUtils.degreesToMinutes(rise.ut));
+</script>
+
+{% endblock %}
+
+{% block content %}
+
+<div id="main-container">
+</div>
+
+{% endblock %}

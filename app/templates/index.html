@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block scripts %}
+
+{% assets filters="jsmin", output="gen/packed.js",
+    "js/app/app.js",
+    "js/3d/lib/Stats.min.js",
+    "js/3d/lib/dat.gui.min.js",
+	"js/3d/lib/three.js/three.js",
+    "js/3d/lib/three.js/Detector.js",
+    "js/3d/lib/three.js/TrackballControls.js",
+    "js/3d/Orbit3D.js",
+    "js/3d/Body3D.js",
+    "js/3d/Ephemeris.js",
+    "js/3d/util.js",
+	"js/3d/main.js" %}
+<script type="text/javascript" src="{{ ASSET_URL }}"></script>
+{% endassets %}
+
+<script>
+$('#webgl-container').height($(window).height() - 100);
+
+var solarsystem = new Solar3D({
+    container: document.getElementById('webgl-container')
+});
+</script>
+
+{% endblock %}
+
+{% block content %}
+
+<div id="stats-container"></div>
+
+<div id="detailContainer" ng-controller="detailsController as d" ng-class="{'hidden': !showDetailContainer}">
+    <div id="detailTitle">
+        <span ng-bind="d.detailData.help.title"></span>
+        <div id="detailClose">
+            <p ng-click="showDetailContainer = !showDetailContainer"><i class="fa fa-close"></i></p>
+        </div>
+    </div>
+    <div id="detailBody">
+        <p ng-bind="d.detailData.help.body"></p>
+        <p>{{ 2 + 2 }} = 4</p>
+    </div>
+</div>
+
+<!-- shaders -->
+<div id="webgl-container"></div>
+
+<div id="main-container">
+    <div id="loading-text"></div>
+</div>
+
+{% include "blocks/shaders.html" %}
+
+{% endblock %}

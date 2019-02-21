@@ -1,0 +1,41 @@
+{
+	"build_systems":
+	[
+		{
+			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+			"name": "Solar System Python Builder",
+			"selector": "source.python",
+			"shell_cmd":
+			[
+				"$project_path",
+				"-u",
+				"./run.py"
+			]
+		},
+		{
+			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+			"name": "Solar System Python Builder Windows",
+			"selector": "source.python",
+			"shell_cmd":
+			[
+				"$project_path\\venv\\Scripts\\python",
+				"run.py"
+			]
+		},
+		{
+			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+			"name": "Anaconda Python Builder",
+			"selector": "source.python",
+			"shell_cmd": "\"python\" -u \"$file\""
+		}
+	],
+	"folders":
+	[
+		{
+			"path": "E:\\Git\\solarsystem"
+		}
+	],
+	"settings":
+	[
+	]
+}
