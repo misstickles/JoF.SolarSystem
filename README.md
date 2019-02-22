@@ -1,52 +1,38 @@
 # Jo's Solar System
 This is my little solar system project
 
+This is a little project written in Three.js and Flask.
+
+There are 100,000+ stars - all with relative sizes and accurate colours, accurate shaped planet orbits and planet textures.  Scale is lacking!!
+
 ## Installation
 Install Python (3.7)
 
-Ensure you have Python and Pip
+### Ensure you have Python and Pip
 
-	`python --version`
+	python --version
+	pip --version
 
-	`pip --version`
+### Clone project from GitHub
 
-clone project from GitHub
-
-	`git clone <project>`
+	git clone <project>
 
 cd to 'parent' direcroty
 
-Create / Activate virtual environment:
+### Create / Activate virtual environment
 
-	`python -m venv venv` (creates venv environment in current directory)
-
-	`venv/Scripts/activate`
-
-Install the Flask requirements:
-
-	cd to directory with requirements.txt
-
-	`pip install -r requirements.txt`
-
-Run app
-
-	`flask run`
+	python -m venv venv
+	venv/Scripts/activate
 
 
+### Install the Flask requirements
 
-**bold**, __bold__
-_italic_, *italic*
-(`code`), `<inlinecode>`
-# this is h1
-## h2
-### h3
-```javascript
-code
-```
-[link](jo.com)
-1. item1
-2. item2
-	* item2a
-	* item2b
-> blockquote
-~~crossedout~~
+cd to directory with requirements.txt
+
+	pip install -r requirements.txt
+
+### Run app
+
+	flask run
+
+Open browser to displayed url / port
