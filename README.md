@@ -3,24 +3,33 @@ This is my little solar system project
 
 ## Installation
 Install Python (3.7)
+
 Ensure you have Python and Pip
+
 	`python --version`
+
 	`pip --version`
 
 clone project from GitHub
+
 	`git clone <project>`
 
 cd to 'parent' direcroty
 
 Create / Activate virtual environment:
+
 	`python -m venv venv` (creates venv environment in current directory)
+
 	`venv/Scripts/activate`
 
 Install the Flask requirements:
+
 	cd to directory with requirements.txt
+
 	`pip install -r requirements.txt`
 
 Run app
+
 	`flask run`
 
 
