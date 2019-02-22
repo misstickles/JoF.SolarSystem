@@ -73,7 +73,7 @@
         var guiControls = function() {
             this['Show Milky Way'] = opts.milky_way_visible;
             this['Show Star Field'] = opts.star_field_visible;
-            this['Show Planet Orbits'] = opts.planet_orbits_visible;
+            this['Show Orbits'] = opts.planet_orbits_visible;
             this['Show Planets'] = opts.planets_visible;
             this['Floating Camera'] = opts.float_camera;
         };
@@ -87,7 +87,7 @@
             gui.add(text, 'Show Star Field').onChange(function() {
                 toggleStarField();
             })
-            gui.add(text, 'Show Planet Orbits').onChange(function() {
+            gui.add(text, 'Show Orbits').onChange(function() {
                 togglePlanetOrbits();
             })
             gui.add(text, 'Show Planets').onChange(function() {
@@ -329,6 +329,8 @@
         skySphere.rotation.z = pi / 2,
         skySphere.rotation.x = pi,
         skySphere.renderDepth = 10000.0;
+
+        $('#loading-text').html('');
 
         return skySphere;
     }
